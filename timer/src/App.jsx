@@ -1,10 +1,11 @@
 import React from "react";
-import Number from "./Components/number";
+import Timer from "./Components/Timer.jsx";
+import "./App.css"
 
-export default function App(){
+export default function App() {
   return (
     <div>
-    <Number />
+      <Timer/>
     </div>
   )
 }
