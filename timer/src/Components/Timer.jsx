@@ -25,15 +25,23 @@ export default function Timer(){
     let pause = () => {
         setStatus(pauseTimer);
     }
+
+    let word = () => {
+        if(seconds === 1){
+            return 'second'
+        } else {
+            return 'seconds'
+        }
+    }
    
     let render = () => {
         switch(status){
             case timerNotStarted:
                 return <TimerInput seconds={seconds} setSeconds={setSeconds} setStatus={setStatus} startTimer={startTimer} />;
             case timerRunning:
-                return <TimerCountdown seconds={seconds} setSeconds={setSeconds} setStatus={setStatus} pause={pause} reset={reset} />
+                return <TimerCountdown seconds={seconds} setSeconds={setSeconds} setStatus={setStatus} pause={pause} reset={reset} word={word()}/>
             case pauseTimer:
-                return <TimerPaused startTimer={startTimer} reset={reset} seconds={seconds} />
+                return <TimerPaused startTimer={startTimer} reset={reset} seconds={seconds} word={word()}/>
     }
 
     }
