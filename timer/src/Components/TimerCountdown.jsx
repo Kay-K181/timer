@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 
-export default function TimerCountdown({seconds, setSeconds, pause, reset, setStatus}){
+export default function TimerCountdown({seconds, setSeconds, pause, reset, word}){
 
     useEffect(() => {
         if(seconds === 0){
@@ -17,14 +17,9 @@ export default function TimerCountdown({seconds, setSeconds, pause, reset, setSt
     }, [seconds, setSeconds])
     
     return (
-       <div>
-        {seconds} seconds remaining
-        {seconds >= 1 ?
-            <button type="button" onClick={pause} >Pause</button>
-        :
-            ''
-        }
-        
+       <div className="countdownDisplay">
+        <div className="timerDisplay">{seconds} {word} remaining.</div>
+        {seconds >= 1 && <button type="button" onClick={pause} >Pause</button>}        
         <button type="button" onClick={reset}>Reset</button>
         </div>
     )
