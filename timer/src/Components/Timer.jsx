@@ -25,7 +25,6 @@ export default function Timer(){
     let pause = () => {
         setStatus(pauseTimer);
     }
-
    
     let render = () => {
         switch(status){
